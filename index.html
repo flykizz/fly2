@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script type="text/javascript">
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+            var recalc = function() {
+                var width = docEl.clientWidth;
+                if (width < 300) {
+                    width = 300;
+                }
+                if(width>414){
+                  width=414;
+                }
+                docEl.dataset.width = width
+                docEl.dataset.percent = 100 * (width / 750);
+                docEl.style.fontSize = 100 * (width / 750) + 'px';
+            };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            
+        })(document, window);
+    </script>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+    <header>
+        <a href="#">
+            <img src="http://static.viicb.com/flyking/logo@2x.png">
+        </a>
+        <img class="titile_1" src="http://static.viicb.com/flyking/titile_1@2x.png">
+        <img class="titile_2" src="http://static.viicb.com/flyking/titile_2@2x.png">
+    </header>
+    <ul>
+        <li>
+            <a href="./detail1.html">
+                <div class="frame">
+                    <strong>2018-2022年</strong>
+                    <b>中国工业机器人行业调研报告</b>
+                    <p>高工产研机器人研究所(GGII)</p>
+                    <span class="more">查看更多</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="./detail2.html">
+                <div class="frame">
+                    <strong>2018第二季度</strong>
+                    <b>中国锂电池行业报告分析报告</b>
+                    <p>高工产研锂电研究所(GGII)</p>
+                    <span class="more">查看更多</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="./detail3.html">
+                <div class="frame">
+                    <strong>2018-2020年</strong>
+                    <b>中国并联机器人（DLETA）市场调研报告</b>
+                    <p>高工产研机器人研究所(GGII)</p>
+                    <span class="more">查看更多</span>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="./detail4.html">
+                <div class="frame">
+                    <strong>2018    年</strong>
+                    <b>中国新能源汽车产业链调研报告</b>
+                    <p>深圳市高工产业研究院</p>
+                    <span class="more">查看更多</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <section>
+        <h2>简单三步  助力招商</h2>
+        <img class="step" src="http://static.viicb.com/flyking/steps@2x.png">
+        <ol class="clear">
+            <li>扫码关注公众号</br>点击招商助手</li>
+            <li>初始账号OA邮箱</br>初始密码123456</li>
+            <li>根据需要</br>选择模块使用</li>
+        </ol>
+        <img class="qr" src="http://static.viicb.com/flyking/QR_code@2x.png">
+    </section>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+    <script>
+        $(function(){
+            function getWxSign(){
+                $.ajax({
+                    url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature',
+                    type: 'POST',
+                    data:{
+                        link: location.href
+                    },
+                    success: function(res){
+                        wxShare(res.wxAccountInfo)
+                    }
+                })
+            }
+
+            function wxShare(wxInfo){
+                wx.config({
+                    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: wxInfo.appId, // 必填，公众号的唯一标识
+                    timestamp: wxInfo.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: wxInfo.nonceStr, // 必填，生成签名的随机串
+                    signature: wxInfo.signature,// 必填，签名，见附录1  
+                    jsApiList: [
+                    'checkJsApi',
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQQ'
+                    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+            
+                wx.ready(function () {
+                    var shareData = {
+                        title: '华夏幸福研究报告重磅推送',
+                        desc: '',
+                        link: window.location.href,
+                        imgUrl: 'http://static.viicb.com/flyking/hxlogo.png'
+                    };
+                    wx.onMenuShareAppMessage(shareData);
+                    wx.onMenuShareTimeline(shareData);
+                    wx.onMenuShareQQ(shareData);
+                });
+            } 
+            getWxSign()
+        })
+    </script>
+</body>
+</html>

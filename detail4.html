@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script type="text/javascript">
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+            var recalc = function() {
+                var width = docEl.clientWidth;
+                if (width < 300) {
+                    width = 300;
+                }
+                if(width>414){
+                  width=414;
+                }
+                docEl.dataset.width = width
+                docEl.dataset.percent = 100 * (width / 750);
+                docEl.style.fontSize = 100 * (width / 750) + 'px';
+            };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            
+        })(document, window);
+    </script>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/detail.css">
+</head>
+<body>
+   <a href="javascript:window.history.go(-1);"></a>
+   <img class="title" src="http://static.viicb.com/flyking/titile_04@2x.png">
+   <h1>深圳市高工产业研究院</h1>
+   <article>
+       <p>GGII数据显示，2017年中国市场新增工业机器人13.6万台，同比增长达到60%；自2013年中国成为全球最大工业机器人需求市场以来，截至2017年年底，已连续五年蝉联全球最大工业机器人市场。 </p><p>
+2017年，是工业机器人市场需求集中爆发的一年。在资本、政策、技术、市场等多重因素下，中国机器人产业发展迅速：国外核心零部件厂商普遍缺货，供货周期延长，本土零部件厂商迎来机遇；</p><p>
+本体企业向上游延伸、本体与集成界限逐渐淡化、智能制造装备加速“走出去”、新面孔“走进来”，销量破千台的企业数量剧增；</p><p>
+系统集成迎来行业分水岭，市场竞争愈发激烈，呈现细分化、规模化、差异化的竞争态势。</p><p>
+未来几年，中国机器人产业机遇与挑战并存，机器人企业也纷纷加快布局，开启了向风口进军的步伐。为厘清工业机器人行业发展脉络，把握市场走向，帮助企业投资决策，高工产研机器人研究所(GGII)</p><p>在实地走访大量机器人企业、充分挖掘行业信息的前景下，编制了《2018-2022年中国工业机器人行业调研报告》。</p><p>
+本报告对全球及中国工业机器人行业的市场发展特点、机器人产业链发展情况、主要产品市场份额、各应用领域市场情……行了详细的分析，系统整理了重点企业调研数据、跟踪企业的发展动向，并前瞻性地分析了未来几年(2018-2022年)行业发展前景，对企业提出了发展建议。为企业、投资者、证券公司以及希望投资机器人产业的人士，提供最具参考价值的研究报告……</p>
+   </article>
+   <p>登录小程序查看更多行业研究报告</p>
+        <img class="qr" src="http://static.viicb.com/flyking/QR_code@2x.png">
+</body>
+</html>

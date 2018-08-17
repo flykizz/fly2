@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script type="text/javascript">
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+            var recalc = function() {
+                var width = docEl.clientWidth;
+                if (width < 300) {
+                    width = 300;
+                }
+                if(width>414){
+                  width=414;
+                }
+                docEl.dataset.width = width
+                docEl.dataset.percent = 100 * (width / 750);
+                docEl.style.fontSize = 100 * (width / 750) + 'px';
+            };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            
+        })(document, window);
+    </script>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/detail.css">
+</head>
+<body>
+   <a href="javascript:window.history.go(-1);"></a>
+   <img class="title" src="http://static.viicb.com/flyking/title_02@2x.png">
+   <h1>高工产研锂电研究所(GGII)</h1>
+   <article>
+
+       <p>2018年第二季度中国新能源汽车产量为23.9万辆，同比增长74.1%。其中乘用车产量达19.76万辆，占比82.7%，同比增长71.1%；客车产量达2.77万辆，占比11.6%，同比增长175.6%；专用车产量达1.37万辆，占比5.7%，同比仅小幅增长16.3%。</p><p>
+图表12018Q2电动车分种类产量占比（23.9万辆）</p>
+<img src="http://static.viicb.com/flyking/pic_li@2x.png">
+<p>数据来源：高工产研锂电研究所（GGII），2018年7月</p><p>
+单月环比来看，2018年第二季度新能源汽车产量环比保持下滑趋势，其中4、5月份基本持平，5月环比小幅下滑0.6%，6月份环比下滑23.4%；单月同比来看，4、5、6月份分别同比增长147.5%、81.8%和20.4%，同比大幅增长、环比下滑的主要原因有：</p><p>
+1）同期基数较低：去年同期，新能源补贴政策调整及强检要求的提出，导致去年同期市场产量相对较低；</p><p>
+2）补贴过渡期冲量：4-6月为补贴政策的过渡期，部分乘用车和客车企业选择在这几个月冲量，拿到更多补贴，因此同比均出现较大增幅……</p><p>
+3）6月补贴调整导致减产：随着6月12号开始执行2018年的补贴标准，6月份部分低续航及低能量密度车型产销量受到影响，因此6月份产量环比出现较大幅度下滑。</p>
+   </article>
+   <p>登录小程序查看更多行业研究报告</p>
+        <img class="qr" src="http://static.viicb.com/flyking/QR_code@2x.png">
+</body>
+</html>

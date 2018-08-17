@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script type="text/javascript">
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+            var recalc = function() {
+                var width = docEl.clientWidth;
+                if (width < 300) {
+                    width = 300;
+                }
+                if(width>414){
+                  width=414;
+                }
+                docEl.dataset.width = width
+                docEl.dataset.percent = 100 * (width / 750);
+                docEl.style.fontSize = 100 * (width / 750) + 'px';
+            };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            
+        })(document, window);
+    </script>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/index2.css">
+</head>
+<body>
+    <header>
+        <a href="#">
+            <img src="http://static.viicb.com/flyking/logo@2x.png">
+        </a>
+        <img class="titile_1" src="http://static.viicb.com/flyking/title.png">
+    </header>
+    <ul class="index2">
+        <li>
+            <div class="title">宏观经济政策 新鲜直达</div>
+            <div class="sub-title">宏观经济、产业经济、行业研究、都市圈研究</div>
+            <img class="main-img" src="http://static.viicb.com/flyking/001.gif">
+            <img class="image-banner" src="http://static.viicb.com/flyking/banner1.png">
+        </li>
+        <li>
+            <div class="title">产业研究成果 实时发布</div>
+            <div class="sub-title">新能源汽车、航空航天、新材料、生物医药等</div>
+            <img class="main-img" src="http://static.viicb.com/flyking/002.gif">
+            <img class="image-banner" src="http://static.viicb.com/flyking/banner2.png">
+        </li>
+        <li>
+            <div class="title">招商手册物料 一键申领</div>
+            <div class="sub-title">华夏幸福品牌宣传册，各区域、各产业招商手册</div>
+            <img class="main-img" src="http://static.viicb.com/flyking/003.gif">
+            <img class="image-banner" src="http://static.viicb.com/flyking/banner3.png">
+        </li>
+    </ul>
+    <section>
+        <h2>简单三步  助力招商</h2>
+        <img class="step" src="http://static.viicb.com/flyking/steps@2x.png">
+        <ol class="clear">
+            <li>扫码关注公众号</br>点击招商助手</li>
+            <li>初始账号OA邮箱</br>初始密码123456</li>
+            <li>根据需要</br>选择模块使用</li>
+        </ol>
+        <img class="qr" src="http://static.viicb.com/flyking/QR_code@2x.png">
+    </section>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+    <script>
+        $(function(){
+            function getWxSign(){
+                $.ajax({
+                    url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature',
+                    type: 'POST',
+                    data:{
+                        link: location.href
+                    },
+                    success: function(res){
+                        wxShare(res.wxAccountInfo)
+                    }
+                })
+            }
+
+            function wxShare(wxInfo){
+                wx.config({
+                    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: wxInfo.appId, // 必填，公众号的唯一标识
+                    timestamp: wxInfo.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: wxInfo.nonceStr, // 必填，生成签名的随机串
+                    signature: wxInfo.signature,// 必填，签名，见附录1  
+                    jsApiList: [
+                        'checkJsApi',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage',
+                        'onMenuShareQQ'
+                    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+            
+                wx.ready(function () {
+                    var shareData = {
+                        title: '招商助手小程序上线啦！！！',
+                        desc: '',
+                        link: window.location.href,
+                        imgUrl: 'http://static.viicb.com/flyking/hxlogo.png'
+                    };
+                    wx.onMenuShareAppMessage(shareData);
+                    wx.onMenuShareTimeline(shareData);
+                    wx.onMenuShareQQ(shareData);
+                });
+            } 
+            getWxSign()
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <script type="text/javascript">
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+            var recalc = function() {
+                var width = docEl.clientWidth;
+                if (width < 300) {
+                    width = 300;
+                }
+                if(width>414){
+                  width=414;
+                }
+                docEl.dataset.width = width
+                docEl.dataset.percent = 100 * (width / 750);
+                docEl.style.fontSize = 100 * (width / 750) + 'px';
+            };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            
+        })(document, window);
+    </script>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/detail.css">
+</head>
+<body>
+   <a href="javascript:window.history.go(-1);"></a>
+   <img class="title" src="http://static.viicb.com/flyking/title_03@2x.png">
+   <h1>高工产研机器人研究所（GGII)</h1>
+   <article>
+
+       <p>并联机器人在上世纪90年代才真正引起广泛注意，具有刚度高、速度快、柔性强、重量轻等优点，与串联机器人一起构成工业机器人的重要部分。在食品、医药、电子等轻工业中应用最为广泛，在物料的搬运、包装、分拣等方面有着无可比拟的优势。近两年，随着并联机器人在市场中的应用日益从广泛，已成为工业机器人需求增长的新生力量。 </p><p>
+根据GGII调研数据显示，2017年中国并联机器人市场销量2700台，同比增长68.75%，预计2018年并联机器人销量达到4000台，同比增速超过40%。 </p><p>
+目前，国际国内大部分市场基本上由发那科、爱德普、ABB等企业占据，国产化率基本稳定在25%左右。总体来看，受制于应用场景的局限性以及行业需求的特定性，并联机器人总体销量偏小，但未来企业成长机会大于竞争。 </p><p>
+在充分调研的基础上，高工产研机器人研究所(GGII)编制了《2018-2020年中国并联机器人市场调研报告》。本报告对2017年及未来几年中国并联机器人行业的市场发展特点、并联机器人市场产量规模、并联机器人市场竞争情况、各应用领域产品需求、市场发展趋势、行业发展环境等进行了详细的研究和分析。高工产研机器人研究所（GGII）希望通过切切实实地调查，深入研究分析，为企业、投资者、证券公司以及想了解机器人产业的人士，提供最准确最优参考价值的机器人行业数据及调查报告……</p>
+   </article>
+   <p>登录小程序查看更多行业研究报告</p>
+        <img class="qr" src="http://static.viicb.com/flyking/QR_code@2x.png">
+</body>
+</html>

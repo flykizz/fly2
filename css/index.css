@@ -78,10 +78,10 @@ ul li:nth-child(4){background-image: url('http://static.viicb.com/flyking/pic_4@
 .frame .more::after{
     display: inline-block;
     content: '';
-    width: 10px;
-    height: 12px;
+    width: 8px;
+    height: 10px;
     margin-left: 5px;
-    vertical-align: middle;
+    margin-top: 1px;
     background-size: cover;
     background-image: url('http://static.viicb.com/flyking/btn_continue@2x.png');
 }
@@ -116,7 +116,7 @@ section ol li{
     line-height: .36rem;
 }
 section h2{
-    font-size: .62rem;
+    font-size: .42rem;
     padding-top: 1.14rem;
     color: #fff;
     text-align: center;

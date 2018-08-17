@@ -101,7 +101,7 @@
                         link: location.href
                     },
                     success: function(res){
-                        wxShare(res.wxAccountInfo)
+                        wxShare(res.data && res.data.wxAccountInfo)
                     }
                 })
             }

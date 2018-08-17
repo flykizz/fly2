@@ -80,7 +80,7 @@ ul li:nth-child(4){background-image: url('http://static.viicb.com/flyking/pic_4@
     content: '';
     width: 10px;
     height: 12px;
-    margin-left: 10px;
+    margin-left: 5px;
     vertical-align: middle;
     background-size: cover;
     background-image: url('http://static.viicb.com/flyking/btn_continue@2x.png');

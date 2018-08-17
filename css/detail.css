@@ -24,12 +24,14 @@ article{
     border-radius: .1rem;
     background: #fff;
     width: 6.72rem;
+    max-height: 498px;
     margin: 0 auto;
     box-sizing: border-box;
     padding: .3rem .2rem;
         font-size: .24rem;
     text-indent: 2em;
         line-height: .36rem;
+    overflow-y: auto;
 }
 body > p{
     text-align: center;
@@ -41,6 +43,22 @@ article img{
     width: 80%;
     display: block;
     margin: .1rem auto;
+}
+.footer{
+    text-align: center;
+    color: #bd0716;
+    font-size: .28rem;
+    margin: .28rem 0;
+}
+
+.footer::after{
+    display: inline-block;
+    content: '';
+    width: 10px;
+    height: 12px;
+    margin-left: 5px;
+    background-size: cover;
+    background-image: url('http://static.viicb.com/flyking/btn_continue@2x.png');
 }
 .qr{
     width: 3.78rem;

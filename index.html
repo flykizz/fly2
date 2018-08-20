@@ -95,7 +95,7 @@
         $(function(){
             function getWxSign(){
                 $.ajax({
-                    url: 'http://api.viicb.com/App.Weixin.GetJsSign',
+                    url: 'http://wechat.viicb.com/?service=App.Weixin.GetJsSign',
                     type: 'POST',
                     data:{
                         url: location.href,
